@@ -1,4 +1,4 @@
-### Reconnaissance & Discovery ###
+## Reconnaissance & Discovery ##
 
 ## Ziel der Reconnaissance-Phase
 
