@@ -69,7 +69,7 @@ um Denkweisen, Vorgehensmodelle und Zusammenhänge zu trainieren.
 
 Wenn ich ein Lab nicht verstehe, gehe ich einen Schritt zurück
 und arbeite mich erneut an die Grundlagen heran.
-Es ist auch keine Schande, Walkthroughs anderer zurate zu ziehen um draus zu lernen.
+Es ist auch keine Schande, Walkthroughs anderer zu nutzen um draus zu lernen.
 
 
 ---
