@@ -1,7 +1,7 @@
 # Windows Reconnaissance
 
 
-## Ziel der Phase
+## Ziel der Reconnaissance Phase
 
 - Identifikation offener Ports und laufender Dienste
 - Ermittlung der Betriebssystemversion und des Hostnamens
