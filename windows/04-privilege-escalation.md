@@ -1,6 +1,6 @@
-# Windows Privilege Escalation
+# Privilege-Escalation
 
-## Ziel der Phase
+## Ziel der Privilege-Escalation Phase
 
 - Erlangung höherer Berechtigungen (SYSTEM, Domain Admin, Enterprise Admin)
 - Ausnutzung von Fehlkonfigurationen und Schwachstellen
