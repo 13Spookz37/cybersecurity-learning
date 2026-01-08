@@ -1,4 +1,4 @@
-# Windows Initial-Access
+# Initial-Access
 
 
 ## Ziel der Initial-Access Phase
