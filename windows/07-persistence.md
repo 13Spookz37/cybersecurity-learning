@@ -1,7 +1,7 @@
-# Windows Persistence
+# Persistence
 
 
-## Ziel der Phase
+## Ziel der Persistence Phase
 
 - Langfristigen Zugriff auf kompromittierte Systeme sichern
 - Überleben von Reboots und Credential-Änderungen
