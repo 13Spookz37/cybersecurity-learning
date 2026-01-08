@@ -1,106 +1,86 @@
-📄 VulnLab – Build
+# VulnLab – Build
 
-Plattform: VulnLab
-Schwerpunkt: CI/CD-Misskonfigurationen, interne Services, Angriffspfade
-Schwierigkeitsgrad: Easy (methodisch anspruchsvoll)
-Status: abgeschlossen
+> **Plattform:** VulnLab  
+> **Kategorie:** CI/CD · interne Dienste · Angriffspfade  
+> **Schwerpunkt:** Jenkins · Gitea · Pipeline-Designfehler  
+> **Schwierigkeitsgrad:** mittel  
+> **Status:** abgeschlossen  
 
-1. Ausgangslage
+---
 
-Ziel des Labs war es, ausgehend von einem extern erreichbaren System schrittweise Zugriff zu erlangen und interne Dienste sinnvoll zu nutzen, um vollständige Kontrolle zu erreichen.
+## 1. Ausgangslage
+**Kontext:** Build- und Entwicklungsumgebung mit mehreren erreichbaren Services.
 
 Zu Beginn war unklar:
+- welcher Service den Einstieg ermöglicht
+- ob der Fokus auf Web, Infrastruktur oder internen Komponenten liegt
+- wie stark CI/CD-Systeme eingebunden sind
 
-welche Services tatsächlich relevant sind
+---
 
-ob der Fokus eher auf Web, Infrastruktur oder internen Komponenten liegen würde
+## 2. Erste Annahmen
+Ich bin zunächst von einem klassischen Service- oder Web-Angriff ausgegangen.  
+CI/CD-Komponenten habe ich anfangs eher als unterstützend betrachtet.
 
-wie stark CI/CD-Komponenten eingebunden sind
+> **Rückblick:**  
+> Diese Annahme hat meinen Fortschritt verlangsamt.
 
-2. Erste Annahmen & Erwartungen
+---
 
-Meine anfängliche Erwartung war ein klassischer Web-oder Service-Exploit.
-CI/CD-Systeme wie Jenkins oder Gitea habe ich zunächst eher als unterstützende Komponenten eingeordnet – nicht als primären Angriffsvektor.
+## 3. Reconnaissance – Beobachtungen
+In der Recon-Phase wurde deutlich:
+- mehrere Dienste existieren parallel
+- Backups sind zugänglich
+- Build-Artefakte enthalten sensible Informationen
 
-Rückblickend war das eine falsche Gewichtung.
+Der entscheidende Punkt war nicht *ein einzelner Dienst*, sondern **die Verbindung zwischen ihnen**.
 
-3. Reconnaissance – was ich gesehen habe
+---
 
-In der Recon-Phase wurden mehrere Dienste sichtbar, die auf den ersten Blick unabhängig voneinander wirkten.
-Erst durch genaues Hinsehen wurde klar:
+## 4. Entscheidungsstellen
+Eine zentrale Frage war:
 
-Es existiert eine Build-/Dev-Infrastruktur
+> **Ist die CI/CD-Kette nur Kontext – oder der eigentliche Angriffspfad?**
 
-Backups sind erreichbar
+Ich habe mich bewusst entschieden, sie als **primäres Ziel** zu betrachten.  
+Automatisierung bedeutet Macht – besonders, wenn Vertrauen falsch gesetzt ist.
 
-Credentials und Konfigurationsartefakte sind nicht ausreichend geschützt
+---
 
-Der entscheidende Punkt war nicht welcher Dienst lief, sondern wie sie logisch zusammenhängen.
+## 5. Fehler & Sackgassen
+- Klassische Exploit-Denkmuster zu stark priorisiert
+- Interne Dienste unterschätzt
+- CI/CD-Security zu spät ernst genommen
 
-4. Entscheidungsstellen
+Diese Fehler waren zeitintensiv, aber lehrreich.
 
-Eine zentrale Entscheidung war:
+---
 
-Behandle ich CI/CD nur als Nebenfund oder als Kern des Angriffspfads?
+## 6. Zentrale Learnings
+- CI/CD-Pipelines sind hochprivilegierte Angriffsflächen
+- Backups sind oft Einstiegspunkte
+- Designfehler schlagen Exploits
+- Interne Dienste sind meist entscheidend
 
-Ich habe mich bewusst dafür entschieden, die Build-Kette als Angriffsoberfläche zu betrachten:
+---
 
-Konfigurationen sagen oft mehr als laufende Services
+## 7. Übertragbarkeit
+Sehr realistisch für:
+- Unternehmensnetzwerke
+- DevOps-Umgebungen ohne Security-Fokus
+- Red-Team- & Audit-Szenarien
 
-Automatisierung ist mächtig – für Defender und Angreifer
+---
 
-Diese Entscheidung hat den gesamten weiteren Angriffspfad bestimmt.
+## 8. Weiterführende Gedanken
+- Wie hätten Logging & Monitoring geholfen?
+- Welche Architektur hätte diesen Angriff verhindert?
+- Wie früh hätte man diesen Pfad erkennen können?
 
-5. Fehler & Sackgassen
-
-Zu Beginn habe ich klassische Exploit-Denkmuster priorisiert
-
-Interne Dienste habe ich zunächst unterschätzt
-
-Erst spät wurde klar, wie kritisch Pipeline-Vertrauen ist
-
-Diese Verzögerung hat Zeit gekostet, war aber lehrreich.
-
-6. Zentrale Learnings
-
-CI/CD-Pipelines sind hochprivilegierte Angriffsvektoren
-
-Backups sind kein Nebenschauplatz, sondern oft der Einstieg
-
-Credentials in Build-Artefakten sind realistische Fehlkonfigurationen
-
-Root-Zugriff entsteht hier nicht durch Exploits, sondern durch Designfehler
-
-Interne Dienste sind oft der eigentliche Schatz
-
-7. Übertragbarkeit
-
-Dieses Lab ist sehr realitätsnah für:
-
-interne Unternehmensnetzwerke
-
-schlecht segmentierte Build-Umgebungen
-
-DevOps-Teams ohne Security-Awareness
-
-Besonders relevant für:
-
-Red-Team-Szenarien
-
-Cloud- und Hybrid-Umgebungen
-
-CI/CD-Security-Audits
-
-8. Weiterführende Gedanken
-
-Wie lassen sich solche Angriffspfade frühzeitig erkennen?
-
-Welche Logging- und Monitoring-Mechanismen hätten hier geholfen?
-
-Wie sollte eine sichere Pipeline-Architektur aussehen?
-
-👉 Ausführlicher technischer Walkthrough:
+👉 **Technischer Walkthrough:**  
 [Medium](https://medium.com/@13spookz37/build-vm-walkthrough-b28c89d45c63)
 
-Dieses Writeup dokumentiert meinen Denk- und Entscheidungsprozess.
-Es zeigt warum etwas funktioniert hat – nicht nur dass es funktioniert.
+---
+
+> Dieses Writeup zeigt meinen Denk- und Entscheidungsprozess –  
+> nicht nur die technische Umsetzung.
