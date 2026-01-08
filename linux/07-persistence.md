@@ -1,6 +1,6 @@
 # Persistence
 
-## 1. Ziel der Phase
+## 1. Ziel der Persistence Phase
 
 - Dauerhaften Zugriff auf das kompromittierte System sicherstellen
 - Zugriff auch nach Reboot erhalten
