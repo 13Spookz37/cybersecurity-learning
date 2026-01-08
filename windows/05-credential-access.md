@@ -1,7 +1,7 @@
-# Windows Credential Access
+# Credential-Access
 
 
-## Ziel der Phase
+## Ziel der Credential-Access Phase
 
 - Extraktion von Passwörtern, Hashes und Tokens
 - Sammlung von Credentials aus Dateien, Registry, Speicher und Datenbanken
