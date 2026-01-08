@@ -1,7 +1,7 @@
-# Windows Initial Access
+# Windows Initial-Access
 
 
-## Ziel der Phase
+## Ziel der Initial-Access Phase
 
 - Erlangen einer initialen Shell auf dem Zielsystem
 - Ausnutzung identifizierter Schwachstellen für Remote Code Execution
