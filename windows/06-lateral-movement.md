@@ -1,7 +1,7 @@
-# Windows Lateral Movement
+# Lateral-Movement
 
 
-## Ziel der Phase
+## Ziel der Lateral-Movement Phase
 
 - Bewegung zwischen Systemen innerhalb des Netzwerks
 - Zugriff auf weitere Benutzer-Accounts und Systeme
