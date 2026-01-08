@@ -1,6 +1,6 @@
 # Reconnaissance
 
-## 1. Ziel der Phase
+## 1. Ziel der Reconnaissance Phase
 
 - Informationen über das Zielsystem sammeln
 - Offene Ports identifizieren
