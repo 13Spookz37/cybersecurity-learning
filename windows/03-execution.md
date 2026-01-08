@@ -1,6 +1,6 @@
 # Windows Execution
 
-## Ziel der Phase
+## Ziel der Execution Phase
 
 - Ausführung von Code und Befehlen auf dem kompromittierten System
 - Etablierung persistenter Zugriffsmöglichkeiten
