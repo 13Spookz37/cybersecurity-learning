@@ -405,12 +405,6 @@ python3 restorepassword.py <DOMAIN>/<DC_NAME>\$@<DC_NAME> -target-ip <TARGET_IP>
 7. Doppelklick → CMD Shell
 ````
 
-**PowerShell Upgrade:**
-
-
-```cmd
-powershell
-```
 
 **Shell Stabilisierung:**
 
@@ -585,7 +579,7 @@ LPORT # Listener-Port
 
 ## Typische Findings & Fehler
 
-### Erfolgreiche Exploits aus Notes
+### Erfolgreiche Exploits aus meinen Notes
 
 **EternalBlue:**
 ```
@@ -623,7 +617,7 @@ Result: DC Machine Account Password = leer
 Impact: Full Domain Compromise via DCSync
 ```
 
-### Fehlgeschlagene Angriffe aus Notes
+### Fehlgeschlagene Angriffe aus meinen Notes
 
 **Hydra SSH:**
 - KEX-Algorithmus-Mismatch
