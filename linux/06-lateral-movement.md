@@ -1,4 +1,4 @@
-# Lateral Movement
+# Lateral-Movement
 
 ## 1. Ziel der Lateral-Movement Phase
 
