@@ -1,6 +1,6 @@
 # Lateral Movement
 
-## 1. Ziel der Phase
+## 1. Ziel der Lateral-Movement Phase
 
 - Von einem kompromittierten System zu anderen Systemen im Netzwerk bewegen
 - Zugriff auf weitere Ressourcen erlangen
