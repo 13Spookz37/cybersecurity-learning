@@ -1,4 +1,4 @@
-# Windows Reconnaissance
+# Reconnaissance
 
 
 ## Ziel der Reconnaissance Phase
