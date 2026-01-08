@@ -1,4 +1,4 @@
-# Credential Access
+# Credential-Access
 
 ## 1. Ziel der Credential-Access Phase
 
