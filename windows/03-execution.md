@@ -717,7 +717,6 @@ Parent Admin Hash: 15db914be1e6a896e7692f608a9d72ef
 
 **Joomla (Daily Bugle):**
 
-php
 
 ```php
 public $password = 'nv5uz9r3ZEDzVjNu';
@@ -725,7 +724,6 @@ public $password = 'nv5uz9r3ZEDzVjNu';
 
 **MySQL (Trusted):**
 
-php
 
 ```php
 $username = "root";
@@ -734,7 +732,6 @@ $password = "SuperSecureMySQLPassw0rd1337.";
 
 **mRemoteNG (Lock):**
 
-xml
 
 ````xml
 <Password>TYkZkvR2YmVlm2T2jBYTEhPU2VafgW1d9NSdDX+hUYwBePQ/2qKx+57IeOROXhJxA7CczQzr1nRm89JulQDWPw==</Password>
