@@ -9,7 +9,7 @@
 ---
 
 ## 1. Ausgangslage
-**Kontext:** Build- und Entwicklungsumgebung mit mehreren erreichbaren Services.
+**Kontext:** Build und Entwicklungsumgebung mit mehreren erreichbaren Services.
 
 Zu Beginn war unklar:
 - welcher Service den Einstieg ermöglicht
@@ -19,7 +19,7 @@ Zu Beginn war unklar:
 ---
 
 ## 2. Erste Annahmen
-Ich bin zunächst von einem klassischen Service- oder Web-Angriff ausgegangen.  
+Ich bin zunächst von einem klassischen Service oder Web-Angriff ausgegangen.  
 CI/CD-Komponenten habe ich anfangs eher als unterstützend betrachtet.
 
 > **Rückblick:**  
@@ -68,7 +68,7 @@ Diese Fehler waren zeitintensiv, aber lehrreich.
 Sehr realistisch für:
 - Unternehmensnetzwerke
 - DevOps-Umgebungen ohne Security-Fokus
-- Red-Team- & Audit-Szenarien
+- Red-Team & Audit-Szenarien
 
 ---
 
@@ -82,5 +82,5 @@ Sehr realistisch für:
 
 ---
 
-> Dieses Writeup zeigt meinen Denk- und Entscheidungsprozess –  
+> Dieses Writeup zeigt meinen Denk und Entscheidungsprozess –  
 > nicht nur die technische Umsetzung.
