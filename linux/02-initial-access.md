@@ -1,4 +1,4 @@
-# Initial Access
+# Initial-Access
 
 ## 1. Ziel der Inital-Access Phase
 
