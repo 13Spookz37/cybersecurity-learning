@@ -1,4 +1,4 @@
-# Privilege Escalation
+# Privilege-Escalation
 
 ## 1. Ziel der Privilege-Escalation Phase
 
