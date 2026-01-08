@@ -23,7 +23,7 @@ in Linux, Windows, Active-Directory und Cloud-Umgebungen.
 
 ## Was dieses Repository bewusst nicht ist
 - keine Exploit-Sammlung
-- kein Cheat-Sheet
+- keine reinen Command oder Tool-Cheat-Sheets – Fokus liegt auf Methodik und Entscheidungslogik
 - kein Schritt-für-Schritt-Hacking-Guide
 
 > Ziel ist es, Lernenden zu helfen, Cybersecurity zu verstehen – nicht nur nachzumachen.
