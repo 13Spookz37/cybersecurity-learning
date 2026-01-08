@@ -3,7 +3,7 @@
 > **Plattform:** VulnLab  
 > **Kategorie:** CI/CD · interne Dienste · Angriffspfade  
 > **Schwerpunkt:** Jenkins · Gitea · Pipeline-Designfehler  
-> **Schwierigkeitsgrad:** mittel  
+> **Schwierigkeitsgrad:** easy  
 > **Status:** abgeschlossen  
 
 ---
