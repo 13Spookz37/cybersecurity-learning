@@ -2,7 +2,7 @@
 
 Lernorientiertes Repository, um Cybersecurity-Konzepte, Methodik und Angriffspfade verständlich zu machen.
 
-Dieses Repository ist ein Lern- und Dokumentationsprojekt mit dem Ziel,
+Dieses Repository ist ein Lern und Dokumentationsprojekt mit dem Ziel,
 Cybersecurity nachvollziehbar, strukturiert und zugänglich zu vermitteln.
 
 Der Fokus liegt nicht auf schnellen Erfolgen, Tool-Listen oder „Hack-in-10-Minuten“ Inhalten,
@@ -16,8 +16,8 @@ in Linux, Windows, Active-Directory und Cloud-Umgebungen.
 - typische Fehler im Lernprozess erkennen und vermeiden
 
 ## Inhalte
-- reflektierte Lab-Writeups (z. B. TryHackMe, Hack The Box)
-- methodische Notizen zu Linux, Windows, Active Directory und Cloud Security
+- reflektierte Lab-Writeups (z. B. TryHackMe, Hack The Box, Vulnlab)
+- methodische Notizen zu Linux, Windows, Active-Directory und Cloud-Security
 - persönliche Gedanken, Learnings und Entscheidungswege
 - Verweise auf ausführliche Walkthroughs auf Medium
 
