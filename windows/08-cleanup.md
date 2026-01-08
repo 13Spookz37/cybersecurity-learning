@@ -93,14 +93,14 @@ python3 restorepassword.py retro2.vl/BLN01\$@BLN01 -target-ip <TARGET_IP> -hexpa
 
 ### Windows Event Logs
 
-**Auffällige Events (nicht aus Notes, nur Kontext):**
+**Auffällige Events:**
 - Volume Shadow Copy Erstellung
 - NTDS.dit Zugriffe
 - Domain User Creation
 - Certificate Requests
 - Service Modifications
 
-**Aus Notes erwähnt:**
+**Spezielle Erwähnung aus meinen Notes:**
 - Domain User Creation: Auffällig in Event Logs
 - Certificate Request: Geloggt
 - Volume Shadow Copy: Generiert Event Logs
