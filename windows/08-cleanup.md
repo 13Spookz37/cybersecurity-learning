@@ -1,7 +1,7 @@
-# Windows Cleanup
+# Cleanup
 
 
-## Ziel der Phase
+## Ziel der Cleanup Phase
 
 - Spuren der Kompromittierung minimieren
 - Originale System-Zustände wiederherstellen wo möglich
