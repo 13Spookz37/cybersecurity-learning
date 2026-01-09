@@ -114,10 +114,8 @@ Ab hier existieren innerhalb des Forests keine sinnvollen Trennlinien mehr.
 
 ---
 
-## 🔗 Weiterführende Ressourcen
 
-👉 **Technischer Walkthrough** :
-
+👉 **Technischer Walkthrough**
 [Medium](https://medium.com/@13spookz37/trusted-vm-walkthrough-6ced3f350035)
 
 ---
