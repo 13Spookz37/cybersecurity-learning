@@ -118,8 +118,6 @@ sondern wegen Annahmen.
 
 ---
 
-## 🔗 Weiterführende Ressourcen
-
 👉 **Technischer Walkthrough**  
  [Medium](https://medium.com/@13spookz37/build-vm-walkthrough-b28c89d45c63)
 
