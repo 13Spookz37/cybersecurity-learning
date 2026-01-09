@@ -121,5 +121,5 @@ Ab hier existieren innerhalb des Forests keine sinnvollen Trennlinien mehr.
 ---
 
 > **Hinweis:**  
-> Dieses Write-Up beschreibt den Entscheidungs- und Denkprozess.  
+> Dieses Write-Up beschreibt den Entscheidungs und Denkprozess.  
 > Es enthält bewusst keine technischen Details oder reproduzierbaren Schritte.
