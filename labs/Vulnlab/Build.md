@@ -123,5 +123,5 @@ sondern wegen Annahmen.
 ---
 
 > **Hinweis:**  
-> Dieses Write-Up beschreibt den Denk- und Entscheidungsprozess.  
+> Dieses Write-Up beschreibt den Denk und Entscheidungsprozess.  
 > Es enthält bewusst keine Spoiler oder reproduzierbaren Schritte.
