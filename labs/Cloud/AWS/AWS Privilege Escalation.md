@@ -130,7 +130,7 @@ Kombination von:
 
 ---
 
-👉 **Technischer Walkthrough**:  [Medium](https://medium.com/@13spookz37/aws-privilege-escalation-walkthrough-f991a431c5bf?postPublishedType=repub)
+👉 **Technischer Walkthrough**:  [Medium](https://medium.com/@13spookz37/aws-privilege-escalation-walkthrough-f991a431c5bf)
 ---
 
 > **Hinweis:**  
