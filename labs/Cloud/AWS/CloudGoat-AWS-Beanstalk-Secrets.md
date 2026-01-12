@@ -1,10 +1,10 @@
 # Lab: AWS Beanstalk Secrets
 
-> **Plattform:** CloudGoat  
-> **Schwierigkeit:** Easy  
-> **Kategorie:** Cloud  
-> **Technologiefokus:** AWS · IAM · Elastic Beanstalk · STS · Environment Variables  
-> **Status:** Completed
+**Plattform:** CloudGoat  
+**Schwierigkeit:** Easy  
+**Kategorie:** Cloud  
+**Technologiefokus:** AWS · IAM · Elastic Beanstalk · STS · Environment Variables  
+**Status:** Completed
 
 
 ---
