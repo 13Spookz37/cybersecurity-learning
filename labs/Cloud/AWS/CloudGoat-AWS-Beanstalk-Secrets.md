@@ -3,9 +3,7 @@
 > **Plattform:** CloudGoat  
 > **Schwierigkeit:** Easy  
 > **Kategorie:** Cloud
-
 > **Technologiefokus:** AWS · IAM · Elastic Beanstalk · STS · Environment Variables
-
 > **Status:** Completed  
 
 
