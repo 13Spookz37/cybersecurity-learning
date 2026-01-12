@@ -6,6 +6,7 @@
 > **Technologiefokus:** AWS · IAM · Elastic Beanstalk · STS · Environment Variables
 > **Status:** Completed  
 
+
 ---
 
 ## 🎯 Ziel des Labs
