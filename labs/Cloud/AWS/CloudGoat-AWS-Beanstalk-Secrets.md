@@ -45,7 +45,7 @@ gelegt.
 
 Der entscheidende Schritt war, **nicht nach dem nächsten Angriff**, sondern nach **implizitem Vertrauen und Datenexposition** zu suchen.
 
-> ⚠️ Fokus auf Denkprozess und Architekturverständnis – nicht auf Tools.
+> ⚠️ Fokus auf Denkprozess und Architekturverständnis.
 
 ---
 
