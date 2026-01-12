@@ -1,4 +1,4 @@
-# Lab: AWS Privilege Escalation
+# Lab: CloudGoat AWS Privilege Escalation
 
 **Plattform:** CloudGoat  
 **Schwierigkeit:** Easy  
