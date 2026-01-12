@@ -1,4 +1,4 @@
-# Lab: AWS Beanstalk Secrets
+# Lab: CloudGoat AWS Beanstalk Secrets
 
 **Plattform:** CloudGoat  
 **Schwierigkeit:** Easy  
