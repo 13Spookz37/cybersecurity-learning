@@ -57,8 +57,8 @@ in diesem Repository veröffentlicht, sondern extern auf [Medium](https://medium
 
 - analytische, reflektierende Lab-Writeups (z. B. TryHackMe, Hack The Box,
   Vulnlab)
-- methodische Notizen zu Angriffspfaden in Linux-, Windows-,
-  Active-Directory- und Cloud-Umgebungen
+- methodische Notizen zu Angriffspfaden in Linux, Windows,
+  Active-Directory und Cloud-Umgebungen
 - persönliche Gedanken, Learnings und Entscheidungswege
 - Verweise auf externe Walkthroughs auf Medium
 
