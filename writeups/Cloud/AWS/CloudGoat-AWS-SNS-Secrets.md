@@ -30,22 +30,25 @@ Mein persönliches Ziel war es, besser zu verstehen,
 
 ## 🧠 Methodischer Ansatz
 
-Am Anfang bin ich davon ausgegangen, dass es wieder auf IAM hinausläuft.
+Ich bin strukturiert in das Lab gestartet.
 
-Meine Erwartung:
-- irgendwo eine Rolle
-- irgendwo Trust
-- irgendwo ein klassischer Eskalationspfad
+Pacu lief und mein Fokus lag direkt auf SNS.
+Nach einer kurzen Orientierung habe ich gezielt nach SNS‑bezogenen Modulen gesucht
+und mit der Enumeration begonnen.
 
-Diese Denkweise hat mir hier nicht geholfen.
+Der technische Weg war mir also klar:
+- Service identifizieren
+- Inhalte auflisten
+- verstehen, was zugänglich ist
 
-Stattdessen habe ich angefangen,
-mir einfach anzuschauen:
-- welche Services sichtbar sind
-- wo Daten liegen
-- was ich konkret lesen darf
+Die eigentliche Herausforderung lag nicht darin,
+*wie* ich vorgehe,
+sondern *wie ich die Ergebnisse einordne*.
 
-Pacu und AWS CLI halfen mir dabei Schritt für Schritt zu verstehen, was da eigentlich passiert.
+Erst beim Lesen der Inhalte wurde deutlich,
+dass der Zugriff selbst bereits das Ziel ist
+und keine weitere Eskalation notwendig war.
+
 
 ---
 
@@ -53,24 +56,36 @@ Pacu und AWS CLI halfen mir dabei Schritt für Schritt zu verstehen, was da eige
 
 ### Beobachtungen
 
-- Der IAM-User hatte nur sehr eingeschränkte Rechte
-- Keine Möglichkeit, Policies zu ändern
-- Kein direkter Zugriff auf sensible Services
+Der IAM‑User war stark eingeschränkt:
+- kaum relevante Rechte
+- keine Möglichkeit, Policies zu verändern
+- keine offensichtliche Eskalationsfläche
 
-Was mir aber auffiel:
+Parallel dazu war aber klar:
 - SNS war zugänglich
-- Topics konnten eingesehen werden
-- Nachrichteninhalte waren lesbar
+- Topics ließen sich enumerieren
+- Nachrichteninhalte konnten gelesen werden
 
-Das wirkte zuerst unspektakulär.
+Technisch wirkte das zunächst unspektakulär.
+Kein Exploit, kein Bruch, kein offensichtlicher Fehler.
 
 ### Schlussfolgerungen
 
-Ich habe mir dann die Frage gestellt:
-- **Warum werden hier überhaupt Daten verteilt?**
+Der entscheidende Punkt war nicht,
+dass bereits sensible Daten einsehbar waren.
 
-Es ging nicht um klassische Exploits,
-sondern darum, SNS zu verstehen.
+Sondern:
+- dass ein Subscribe möglich war
+- dass SNS als Verteiler für Secrets genutzt wurde
+- und dass zukünftige Nachrichten für diese Identität bestimmt waren
+
+Der API‑Key lag nicht offen herum.
+Er wurde erst durch die Subscription zugestellt.
+
+Der sicherheitsrelevante Fehler lag also nicht im Inhalt,
+sondern im Design:
+wer Nachrichten empfangen darf – und warum.
+
 
 ---
 
