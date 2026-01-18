@@ -3,8 +3,8 @@
 
 
 
-Dieses Diagramm zeigt die logische Struktur und die Zusammenhänge der einzelnen
-Phasen eines Active‑Directory‑Pentests.
+Dieses Diagramm stellt eine abstrahierte, methodische Sicht auf einen Active-Directory-Pentest dar.
+Es ergänzt die unten beschriebenen 8 Phasen, indem es visuell darlegt, wie Informationen, Erkenntnisse und Zugriffe phasenübergreifend zusammenhängen und in Entscheidungen einfließen.
 
 ### Legende
 - **Pfeile** zeigen typische Übergänge zwischen Phasen
