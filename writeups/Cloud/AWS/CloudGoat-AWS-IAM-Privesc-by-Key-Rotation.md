@@ -18,7 +18,7 @@ Das Ziel war zu verstehen,
 - warum legitime IAM‑Funktionen ausreichen, um die Kontrolle zu verlieren
 - und weshalb man Berechtigungen nicht isoliert, sondern im Ablauf betrachten muss
 
-Mein persönliches Lernziel war es,
+Ich habe gelernt, dass:
 **Key Rotation nicht automatisch als Schutz zu sehen, sondern als Prozess mit Risiko wenn man es falsch implementiert**.
 
 ---
