@@ -1,5 +1,5 @@
 ## Active Directory Pentesting – Methodikübersicht
-<img width="3462" height="742" alt="Active Directory Pentesting Attack Flow" src="https://github.com/user-attachments/assets/7a669d7e-8ae2-44d5-a89b-950fe47d8fa3" />
+<img width="3462" height="742" alt="Active Directory Pentesting Attack Flow" src="https://github.com/user-attachments/assets/8f1f83f1-3d15-4eb0-ab80-a601b3e0848d" />
 
 
 
