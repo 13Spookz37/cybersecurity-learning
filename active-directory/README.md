@@ -1,7 +1,7 @@
 ## Active Directory Pentesting – Methodikübersicht
 <img width="3462" height="742" alt="Active Directory Pentesting Attack Flow" src="https://github.com/user-attachments/assets/dec3d29c-0202-41a0-b39d-61c6137ea595" />
-Dieses Diagramm zeigt die logische Struktur und die Zusammenhänge der einzelnen
-Phasen eines Active‑Directory‑Pentests.
+
+
 **Legende:**
 - Pfeile zeigen typische Übergänge zwischen Phasen
 - Linien zeigen inhaltliche Abhängigkeiten und Rückkopplungen
