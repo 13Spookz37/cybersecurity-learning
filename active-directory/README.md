@@ -10,10 +10,6 @@
 Dieses Diagramm zeigt die logische Struktur und die Zusammenhänge der einzelnen
 Phasen eines Active‑Directory‑Pentests.
 
-**Legende:**
-- Pfeile zeigen typische Übergänge zwischen Phasen
-- Linien zeigen inhaltliche Abhängigkeiten und Rückkopplungen
-- Gleichfarbige Blöcke gehören zur selben methodischen Ebene
 
 ---
 
