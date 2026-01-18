@@ -1,4 +1,15 @@
-Dieser Ordner enthält meine strukturierten Notes zum Linux-Pentesting.
+## Windows‑Pentesting – Methodische Notizen
 
-Die einzelnen Kapitel folgen einer klaren Phasenstruktur, die sich an realen Linux-Angriffsszenarien orientiert.  
-Die Inhalte decken die komplette Kill Chain ab – von Reconnaissance über Initial Access und Privilege Escalation bis hin zu Persistence und Cleanup.
+Dieser Ordner enthält strukturierte Notizen und Gedankengerüste
+zum Pentesting von Windows‑Systemen.
+
+Die Inhalte sind **phasenbasiert** aufgebaut und dienen dazu,
+typische Zusammenhänge, Abhängigkeiten und Vorgehensweisen in
+Windows‑Umgebungen zu verstehen.
+
+Der Fokus liegt auf dem **methodischen Ablauf** – von der
+Informationssammlung über Rechte‑ und Kontextgewinnung bis hin
+zu weiterführenden Zugriffs‑ und Nachbereitungsphasen.
+
+Die Inhalte stellen **keine Schritt‑für‑Schritt‑Anleitung** dar,
+sondern dienen als **Lern‑ und Denkstruktur**.
