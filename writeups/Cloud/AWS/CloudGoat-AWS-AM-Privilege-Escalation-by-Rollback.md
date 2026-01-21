@@ -37,7 +37,7 @@ habe ich mir eine einfache Frage gestellt:
 Mein Fokus lag dabei auf:
 - IAM‑Berechtigungen
 - Policy‑Historien
-- und generelle enumeration
+- und allgemeine Enumeration
   
 Lesen, Prüfen und Verstehen.
 
@@ -81,7 +81,7 @@ Der Einstiegspunkt war keine Schwachstelle,
 sondern eine erlaubte Funktion:
 das Zurücksetzen einer Policy auf eine frühere Version.
 
-Es war keine Zauberei, sondern ich habe lediglich ein Zustand wiederhergestellt,
+Es war keine Zauberei, sondern ich habe lediglich einen Zustand wiederhergestellt,
 der eigentlich längst hätte entfernt sein müssen.
 
 ---
@@ -102,7 +102,7 @@ Das Problem lag im Umgang mit der Historie.
 
 ### Entscheidungsfindung
 
-Ich hätte ab da noch weiter machen können da mir nun **24 Eskalations-Methoden** offen standen.
+Ich hätte ab da noch weitermachen können, da mir nun **24 Eskalations-Methoden** offen standen.
 Aber da das Ziel des Labs die **Privilege Escalation** selbst war, war dies nicht mehr nötig. 
 
 Alte Policy‑Versionen sind kein Archiv.
@@ -138,7 +138,7 @@ Low‑Priv User
 - Sicherheitsannahmen sollten regelmäßig hinterfragt werden
 
 ### Persönlich
-- Vergessene Policy‑Versionen könnten durchaus gefährlich sein
+- Vergessene Policy‑Versionen stellen ein reales Sicherheitsrisiko dar
 - IAM‑Hygiene‑Management darf nie vernachlässigt werden
 - Weniger Technik, mehr Verständnis bringt oft die besseren Ergebnisse
 
