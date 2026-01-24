@@ -162,6 +162,5 @@ Nur falsches Vertrauen in eine „kleine“ Komponente.
 ---
 
 > 💡 **Hinweis:**  
-> Dieses Write-up ist eine Nachbetrachtung meines Vorgehens  
-> und fokussiert sich bewusst auf Denkfehler, Annahmen und Auswirkungen –  
-> nicht auf eine technische Schritt-für-Schritt-Anleitung.
+> Dieses Write-up beschreibt meine Beobachtungen und Gedankengänge
+> und verzichtet bewusst auf eine technische Schritt-für-Schritt-Anleitung.
