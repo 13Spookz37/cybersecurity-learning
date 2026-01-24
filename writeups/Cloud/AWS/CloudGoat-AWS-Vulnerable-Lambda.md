@@ -1,4 +1,4 @@
-# Lab: CloudGoat AWS Privilege Escalation via Vulnerable Lambda
+# Lab: CloudGoat AWS Vulnerable Lambda.md
 
 **Plattform:** CloudGoat  
 **Schwierigkeit:** Medium  
