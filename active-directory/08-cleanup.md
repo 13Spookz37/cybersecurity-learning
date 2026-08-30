@@ -16,7 +16,6 @@
 
 ### Domain User löschen
 
-cmd
 
 ```cmd
 # Domain User entfernen
@@ -34,7 +33,6 @@ cat lootme/domain_users.html
 # Nach Benutzern mit zufälligen Namen suchen (z.B. hSnKXmKTJa)
 ```
 
-cmd
 
 ```cmd
 # Via Evil-WinRM oder PSExec auf DC
@@ -47,7 +45,6 @@ net user hSnKXmKTJa /delete /domain
 
 ### Mimikatz Files löschen
 
-cmd
 
 ```cmd
 # Mimikatz und zugehörige Dateien
@@ -59,7 +56,6 @@ del C:\Windows\Temp\mimispool.dll
 
 ### Verification
 
-cmd
 
 ```cmd
 # Prüfen ob Files gelöscht
@@ -72,7 +68,6 @@ dir C:\Windows\Temp\mimi*.*
 
 ### LNK Files löschen
 
-cmd
 
 ```cmd
 # Malicious LNK Files entfernen
@@ -81,7 +76,6 @@ del C:\important_document.lnk
 
 ### PowerShell Scripts entfernen
 
-cmd
 
 ```cmd
 # Falls PowerShell Scripts erstellt wurden
@@ -115,7 +109,6 @@ rm shell.dll
 
 ### Auf Target System
 
-cmd
 
 ```cmd
 # Falls DLL auf Target kopiert wurde
@@ -558,7 +551,6 @@ rm -rf /opt/PlumHound/reports/
 
 ### Phase 1: Domain Cleanup (0-15 min)
 
-cmd
 
 ```cmd
 # 1. Backdoor Users entfernen
@@ -711,7 +703,6 @@ sudo umount -l /tmp/mount
 
 ### Domain User Deletion Failed
 
-cmd
 
 ```cmd
 # Prüfen ob User noch eingeloggt
