@@ -44,7 +44,6 @@ sudo responder -I tun0 -dwv
 
 **Von Windows-System:**
 
-cmd
 
 ````cmd
 # Im Windows Explorer Adressleiste:
@@ -169,7 +168,6 @@ telnet 127.0.0.1 11000
 
 **Verfügbare Befehle in interaktiver Shell:**
 
-smb
 
 ```smb
 help           # Befehle anzeigen
