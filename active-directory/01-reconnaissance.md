@@ -212,7 +212,6 @@ sudo bloodhound
 
 ### PowerShell Trust-Enumeration
 
-powershell
 
 ```powershell
 # In Evil-WinRM oder lokalem PowerShell
@@ -351,7 +350,6 @@ echo "10.10.255.69 trusted.vl trusteddc.trusted.vl" | sudo tee -a /etc/hosts
 
 ### Phase 1: Netzwerk-Discovery
 
-bash
 
 ```bash
 # 1. Host-Discovery
