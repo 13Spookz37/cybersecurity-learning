@@ -460,7 +460,6 @@ exit
 
 ### Lateral Movement via Token
 
-cmd
 
 ```cmd
 # In impersonierter Shell
@@ -508,7 +507,6 @@ sudo bloodhound-python -d MARVEL.local -u mmustermann -p Password1 -ns 192.168.x
 
 ### Attack Path Queries
 
-cypher
 
 ```cypher
 # Shortest Path zu Domain Admins
