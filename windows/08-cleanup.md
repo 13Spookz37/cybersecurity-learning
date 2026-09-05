@@ -16,7 +16,6 @@
 
 **Service Binary Backup:**
 
-cmd
 
 ```cmd
 copy BootTime.exe BootTime.exe.bak
@@ -201,7 +200,6 @@ z:\ (Volume Shadow Copy)
 
 ### File Backup
 
-cmd
 
 ```cmd
 copy <ORIGINAL> <ORIGINAL>.bak
@@ -239,7 +237,6 @@ sudo rm $TF
 
 1. **Vor Modification** → Backup erstellen
 
-cmd
 
 ```cmd
 copy BootTime.exe BootTime.exe.bak
@@ -247,7 +244,6 @@ copy BootTime.exe BootTime.exe.bak
 
 2. **Nach Exploit** → Original wiederherstellen (optional)
 
-cmd
 
 ```cmd
 copy BootTime.exe.bak BootTime.exe
@@ -255,7 +251,6 @@ copy BootTime.exe.bak BootTime.exe
 
 3. **Backup entfernen** → Spuren minimieren
 
-cmd
 
 ````cmd
 del BootTime.exe.bak
@@ -283,7 +278,6 @@ powershell
 
 4. **Temp-Dateien löschen**
 
-cmd
 
 ```cmd
 del C:\Temp\ntds.dit
@@ -324,7 +318,6 @@ sudo umount /mnt/dev
 1. **Tools hochgeladen** → certutil, wget
 2. **Nach Verwendung löschen**
 
-cmd
 
 ````cmd
 del C:\Users\Public\SetOpLock.exe
